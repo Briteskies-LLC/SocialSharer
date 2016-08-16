@@ -1,0 +1,15 @@
+{
+    "name": "briteskies/social-sharer",
+    "description": "Social Module for Magento 2",
+    "require": {
+        "php": ">=5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7.14"
+    },
+    "autoload": {
+        "psr-4": {
+            "Briteskies\\Social\\": "src/"
+        }
+    }
+}
