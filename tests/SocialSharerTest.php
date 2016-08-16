@@ -7,35 +7,32 @@ class SocialSharerTest extends PHPUnit_Framework_TestCase
 
     public function testCanGenerateGooglePlusLink()
     {
-        $socialsharer = new SocialSharer();
-        $link = $socialsharer->generateGooglePlusLink(Test_URL);
-        $this->assertTrue($link == 'https://plus.google.com/share?url=' . Test_URL);
+        $link = SocialSharer::generateGooglePlusLink(static::Test_URL);
+        $this->assertEquals($link,'https://plus.google.com/share?url=' . static::Test_URL);
 
         //This function requires a URL be passed in
-        $link = $socialsharer->generateGooglePlusLink();
-        $this->assertFalse($link == 'https://plus.google.com/share?url=' . Test_URL);
+        $link = SocialSharer::generateGooglePlusLink('');
+        $this->assertNotEquals($link,'https://plus.google.com/share?url=' . static::Test_URL);
     }
     public function testCanGenerateTwitterLink()
     {
-        $socialsharer = new SocialSharer();
-        $link = $socialsharer->generateTwitterLink('');
-        $this->assertTrue($link == 'https://twitter.com/intent/tweet?text=');
+        $link = SocialSharer::generateTwitterLink('');
+        $this->assertEquals($link,'https://twitter.com/intent/tweet?text=');
     }
     public function testCanGenerateFacebookLink()
     {
-        $socialsharer = new SocialSharer();
-        $link = $socialsharer->generateFacebookLink(Test_URL);
-        $this->assertTrue($link == 'https://www.facebook.com/sharer.php?s=100&p%5Burl%5D=');
+        $link = SocialSharer::generateFacebookLink(static::Test_URL);
+        $this->assertEquals($link,'https://www.facebook.com/sharer.php?s=100&p%5Burl%5D=');
     }
     public function testCanGeneratePinterestLink()
     {
-        $socialsharer = new SocialSharer();
-        $link = $socialsharer->generatePinterestLink(Test_IMG, Test_URL);
-        $this->assertTrue($link == 'https://pinterest.com/pin/create/button/?media='.Test_IMG."&url=".Test_URL);
+        $link = SocialSharer::generatePinterestLink(static::Test_IMG, static::Test_URL);
+
+        $this->assertEquals($link, 'https://pinterest.com/pin/create/button/?media='.static::Test_IMG."&url=".static::Test_URL);
 
 
         //This function requires a URL be passed in
-        $link = $socialsharer->generateGooglePlusLink();
-        $this->assertTrue($link == 'https://pinterest.com/pin/create/button/?media='.Test_IMG."&url=".Test_URL);
+        $link = SocialSharer::generatePinterestLink('', '');
+        $this->assertNotEquals($link, 'https://pinterest.com/pin/create/button/?media='.static::Test_IMG."&url=".static::Test_URL);
     }
 }

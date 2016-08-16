@@ -3,19 +3,6 @@
 namespace Briteskies\Social;
 
 class SocialSharer {
-    private $product;
-
-    const SHARE_VIA_SETTING = '__SHARE_VIA_SETTING__';
-
-    public function getProduct()
-    {
-        if (!isset( $this->product )) {
-            $this->product = Mage::registry('current_product');
-        }
-
-        return $this->product;
-    }
-
     /**
      * @param string|null $text Text content of post
      * @param string|null $url Full URL to link to
@@ -27,7 +14,7 @@ class SocialSharer {
      *
      * @return string URL to target sharer
      */
-    public function generateTwitterLink(
+    public static function generateTwitterLink(
         $text = null,
         $url = null,
         array $hashtags = array(),
@@ -70,7 +57,7 @@ class SocialSharer {
      *
      * @return string
      */
-    public function generateFacebookLink(
+    public static function generateFacebookLink(
         $url,
         $imageUrl = null,
         $title = null,
@@ -103,7 +90,7 @@ class SocialSharer {
      *
      * @return string
      */
-    public function generatePinterestLink(
+    public static function generatePinterestLink(
         $image,
         $url,
         $description = null,
@@ -129,7 +116,7 @@ class SocialSharer {
      *
      * @return string
      */
-    public function generateGooglePlusLink($url, $querySeparator = '&')
+    public static function generateGooglePlusLink($url, $querySeparator = '&')
     {
         $linkPrefix = 'https://plus.google.com/share';
 
@@ -140,5 +127,3 @@ class SocialSharer {
         return $linkPrefix . '?' . http_build_query($params, null, $querySeparator);
     }
 }
-
-?>
