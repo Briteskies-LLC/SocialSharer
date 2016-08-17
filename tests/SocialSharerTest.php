@@ -2,7 +2,7 @@
 use Briteskies\Social\SocialSharer;
 class SocialSharerTest extends PHPUnit_Framework_TestCase
 {
-    const Test_IMG = "images/70_rose_peach_89153628.jpg";
+    const Test_IMG = "70_rose_peach_89153628.jpg";
     const Test_URL = 'a-url';
 
     public function testCanGenerateGooglePlusLink()
@@ -22,7 +22,7 @@ class SocialSharerTest extends PHPUnit_Framework_TestCase
     public function testCanGenerateFacebookLink()
     {
         $link = SocialSharer::generateFacebookLink(static::Test_URL);
-        $this->assertEquals($link,'https://www.facebook.com/sharer.php?s=100&p%5Burl%5D=');
+        $this->assertEquals($link,'https://www.facebook.com/sharer.php?s=100&p%5Burl%5D=' . static::Test_URL);
     }
     public function testCanGeneratePinterestLink()
     {
