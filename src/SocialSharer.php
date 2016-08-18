@@ -2,7 +2,8 @@
 
 namespace Briteskies\Social;
 
-class SocialSharer {
+class SocialSharer
+{
     /**
      * @param string|null $text Text content of post
      * @param string|null $url Full URL to link to
@@ -32,13 +33,13 @@ class SocialSharer {
         if (!is_null($url)) {
             $params['url'] = $url;
         }
-        if (!empty( $hashtags )) {
+        if (!empty($hashtags)) {
             $params['hashtags'] = implode(',', $hashtags);
         }
         if (!is_null($via)) {
             $params['via'] = $via;
         }
-        if (!empty( $relatedAccounts )) {
+        if (!empty($relatedAccounts)) {
             $params['related'] = implode(',', $relatedAccounts);
         }
         if (!is_null($inReplyTo)) {
