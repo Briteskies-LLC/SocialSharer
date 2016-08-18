@@ -1,15 +1,33 @@
 {
     "name": "briteskies/social-sharer",
-    "description": "Social Module for Magento 2",
+    "description": "Social Sharing Link Generation Library",
+    "license": "proprietary",
+    "type": "library",
+    "homepage": "http://www.briteskies.com/",
     "require": {
         "php": ">=5.6"
     },
     "require-dev": {
-        "phpunit/phpunit": "~3.7.14"
+        "phpunit/phpunit": "^3.7.14",
+        "squizlabs/php_codesniffer": "^2.6",
+        "sensiolabs/security-checker": "^3.0"
     },
     "autoload": {
         "psr-4": {
             "Briteskies\\Social\\": "src/"
         }
+    },
+    "scripts": {
+        "test": [
+            "@vulnerabilities-check",
+            "@codestyle-check",
+            "phpunit"
+        ],
+        "codestyle-check": [
+            "phpcs --standard=psr2 src/"
+        ],
+        "vulnerabilities-check": [
+            "security-checker security:check"
+        ]
     }
 }
