@@ -1,7 +1,7 @@
 {
     "name": "briteskies/social-sharer",
     "description": "Social Sharing Link Generation Library",
-    "license": "proprietary",
+    "license": "MIT",
     "type": "library",
     "homepage": "http://www.briteskies.com/",
     "require": {
